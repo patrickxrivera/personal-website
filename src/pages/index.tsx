@@ -3,56 +3,73 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
 import Text from '../components/Text'
+import {
+  Beaker,
+  Bookmark,
+  Home as HomeIcon,
+  Mail,
+  MobilePhone,
+  MusicalNote,
+  PaintBrush,
+  Pencil,
+  SquaresPlus,
+} from '../components/Icons'
 
 function SidebarListItem({ children, isSelected }: { children: any; isSelected?: boolean }) {
   const dynamicStyles = isSelected ? 'bg-gray-100' : ''
-  return <li className={`p-1 rounded-md mb-1 ${dynamicStyles}`}>{children}</li>
+
+  return <li className={`p-1 rounded-md mb-1 flex items-center ${dynamicStyles}`}>{children}</li>
 }
 
 type SidebarObject = {
   text: string
-  emoji: string
+  emoji?: string
+  Icon?: JSX.Element
 }
 
 const SIDEBAR_LIST_ME: SidebarObject[] = [
   {
     text: 'About',
-    emoji: '💡',
+    Icon: <HomeIcon />,
   },
   {
     text: 'Career',
-    emoji: '✨',
+    Icon: <Beaker />,
   },
   {
     text: 'Writing',
-    emoji: '✍️',
+    Icon: <Pencil />,
   },
 ]
 
 const SIDEBAR_LIST_FAVORITES: SidebarObject[] = [
   {
     text: 'Products',
-    emoji: '📱',
+    Icon: <MobilePhone />,
   },
   {
     text: 'Creators',
-    emoji: '🎨',
+    Icon: <PaintBrush />,
   },
   {
     text: 'Video games',
-    emoji: '🎮',
+    Icon: <SquaresPlus />,
   },
   {
     text: 'Music',
-    emoji: '🎶',
+    Icon: <MusicalNote />,
   },
   {
     text: 'Resources',
-    emoji: '📚',
+    Icon: <Bookmark />,
   },
 ]
 
 const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
+  {
+    text: 'Contact',
+    Icon: <Mail />,
+  },
   {
     text: 'Twitter',
     emoji: '🐦',
@@ -60,10 +77,6 @@ const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   {
     text: 'GitHub',
     emoji: '💻',
-  },
-  {
-    text: 'Contact',
-    emoji: '✉️',
   },
 ]
 
@@ -73,10 +86,10 @@ function Home() {
 
   const renderSidebarList = useCallback(
     (items: SidebarObject[]) =>
-      items.map(({ text, emoji }) => (
+      items.map(({ text, emoji, Icon }) => (
         <SidebarListItem isSelected={selectedItem === text}>
-          <span>{emoji}</span>{' '}
-          <span className={`${selectedItem === text ? 'text-black' : ''}`}>{text}</span>
+          {Icon ?? <span>{emoji}</span>}
+          <span className={`${selectedItem === text ? 'text-black' : ''} ml-1`}>{text}</span>
         </SidebarListItem>
       )),
     [selectedItem]

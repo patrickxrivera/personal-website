@@ -7,5 +7,19 @@ import SquaresPlus from './SquaresPlus'
 import MusicalNote from './MusicalNote'
 import Bookmark from './ Bookmark'
 import Mail from './Mail'
+import GitHub from './GitHub'
+import Twitter from './Twitter'
 
-export { Home, Beaker, Pencil, MobilePhone, PaintBrush, SquaresPlus, MusicalNote, Bookmark, Mail }
+export {
+  Home,
+  Beaker,
+  Pencil,
+  MobilePhone,
+  PaintBrush,
+  SquaresPlus,
+  MusicalNote,
+  Bookmark,
+  Mail,
+  GitHub,
+  Twitter,
+}

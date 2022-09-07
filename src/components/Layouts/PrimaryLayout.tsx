@@ -134,7 +134,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
       <main>
         <div className="flex">
           <div
-            className="w-60 h-screen bg-light"
+            className="w-60 h-screen bg-light sticky top-0"
             style={{
               // inspired by Notion's sidebar
               boxShadow: 'rgb(0 0 0 / 2%) -1px 0px 0px 0px inset',
@@ -161,9 +161,9 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
               </div>
             </div>
           </div>
-          <div className="grow flex justify-center pt-12 bg-gradient-to-b from-indigo-500 h-fit">
+          <div className="grow flex justify-center pt-12 bg-gradient-to-b from-indigo-500 p-20">
             <div className="max-w-2xl bg-white rounded-2xl p-8 shadow-2xl">
-              <div className="border-b-solid border-b-gray-100 border-b">
+              <div className="border-b-solid border-b-gray-100 border-b pb-2">
                 <h1 className="font-bold text-2xl">{pageTitle}</h1>
               </div>
               {children}

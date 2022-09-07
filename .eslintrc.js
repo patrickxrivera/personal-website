@@ -18,6 +18,7 @@ module.exports = {
     'no-use-before-define': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }],
     'import/prefer-default-export': 'off',
     'import/extensions': [

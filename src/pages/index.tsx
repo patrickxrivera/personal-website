@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
+import { withLayout } from '@moxy/next-layout'
 import Text from '../components/Text'
 import {
   Beaker,
@@ -16,30 +17,46 @@ import {
   SquaresPlus,
   Twitter,
 } from '../components/Icons'
+import { PrimaryLayout } from '../components/Layouts'
 
-function SidebarListItem({ children, isSelected }: { children: any; isSelected?: boolean }) {
+function SidebarListItem({ isSelected, item }: { isSelected?: boolean; item: SidebarObject }) {
   const dynamicStyles = isSelected ? 'bg-gray-100' : ''
 
-  return <li className={`p-1 rounded-md mb-1 flex items-center ${dynamicStyles}`}>{children}</li>
+  const { url, openInNewTab, text, Icon } = item
+
+  return (
+    <Link href={url ?? ''}>
+      <a href={url ?? ''} target={openInNewTab ? '_blank' : '_self'} rel="noreferrer">
+        <li className={`p-1 rounded-md mb-1 flex items-center hover:bg-gray-100 ${dynamicStyles}`}>
+          {Icon}
+          <span className={`${isSelected ? 'text-black' : ''} ml-1 text-sm`}>{text}</span>
+        </li>
+      </a>
+    </Link>
+  )
 }
 
 type SidebarObject = {
   text: string
-  emoji?: string
-  Icon?: JSX.Element
+  Icon: JSX.Element
+  url: string
+  openInNewTab?: boolean
 }
 
 const SIDEBAR_LIST_ME: SidebarObject[] = [
   {
     text: 'About',
+    url: '/',
     Icon: <HomeIcon />,
   },
   {
     text: 'Career',
+    url: '/career',
     Icon: <Beaker />,
   },
   {
     text: 'Writing',
+    url: '/writing',
     Icon: <Pencil />,
   },
 ]
@@ -47,22 +64,27 @@ const SIDEBAR_LIST_ME: SidebarObject[] = [
 const SIDEBAR_LIST_FAVORITES: SidebarObject[] = [
   {
     text: 'Products',
+    url: '/products',
     Icon: <MobilePhone />,
   },
   {
     text: 'Creators',
+    url: '/creators',
     Icon: <PaintBrush />,
   },
   {
     text: 'Games',
+    url: '/games',
     Icon: <SquaresPlus />,
   },
   {
     text: 'Music',
+    url: '/music',
     Icon: <MusicalNote />,
   },
   {
     text: 'Resources',
+    url: '/resources',
     Icon: <Bookmark />,
   },
 ]
@@ -70,33 +92,33 @@ const SIDEBAR_LIST_FAVORITES: SidebarObject[] = [
 const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   {
     text: 'Contact',
+    url: '/contact',
     Icon: <Mail />,
   },
   {
     text: 'Twitter',
     Icon: <Twitter />,
+    url: 'https://twitter.com/patrickxrivera',
+    openInNewTab: true,
   },
   {
     text: 'GitHub',
     Icon: <GitHub />,
+    url: 'https://github.com/patrickxrivera',
+    openInNewTab: true,
   },
 ]
 
 function Home() {
   // eslint-disable-next-line no-unused-vars
-  const [selectedItem, setSelectedItem] = useState<string>('About')
+  const [selectedItemText, setSelectedItemText] = useState<string>('About')
 
   const renderSidebarList = useCallback(
     (items: SidebarObject[]) =>
-      items.map(({ text, emoji, Icon }) => (
-        <SidebarListItem isSelected={selectedItem === text}>
-          {Icon ?? <span>{emoji}</span>}
-          <span className={`${selectedItem === text ? 'text-black' : ''} ml-1 text-sm`}>
-            {text}
-          </span>
-        </SidebarListItem>
+      items.map((item) => (
+        <SidebarListItem item={item} isSelected={item.text === selectedItemText} />
       )),
-    [selectedItem]
+    [selectedItemText]
   )
 
   return (
@@ -124,13 +146,13 @@ function Home() {
               </div>
               <div className="mt-4">
                 <div className="mb-1">
-                  <h4 className="text-sm font-bold text-sidebar-subheading">Favorites</h4>
+                  <h4 className="text-sm font-bold">Favorites</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_FAVORITES)}</ul>
               </div>
               <div className="mt-4">
                 <div className="mb-1">
-                  <h4 className="text-sm font-bold text-sidebar-subheading">Say hi</h4>
+                  <h4 className="text-sm font-bold">Say hi</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_CONTACT)}</ul>
               </div>
@@ -243,4 +265,4 @@ function Home() {
   )
 }
 
-export default Home
+export default withLayout(<PrimaryLayout />)(Home)

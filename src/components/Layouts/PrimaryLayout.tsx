@@ -108,12 +108,11 @@ const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
 
 type Props = {
   children?: React.ReactNode
-  headTitle?: string
-  pageTitle?: string
+  headTitle: string
+  pageTitle: string
 }
 
-function PrimaryLayout({ children, headTitle, pageTitle, ...props }: Props) {
-  console.log(props)
+function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
   // eslint-disable-next-line no-unused-vars
   const [selectedItemText, setSelectedItemText] = useState<string>('About')
 

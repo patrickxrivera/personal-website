@@ -71,8 +71,8 @@ const SIDEBAR_LIST_FAVORITES: SidebarObject[] = [
 
 const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   {
-    text: 'Contact',
-    url: '/contact',
+    text: 'Email',
+    url: 'mailto:patrick.x.rivera@gmail.com',
     Icon: <Mail />,
   },
   {

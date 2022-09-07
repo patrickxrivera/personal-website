@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { withLayout } from '@moxy/next-layout'
-import { DocumentDuplicateIcon, PencilSquareIcon } from '@heroicons/react/24/outline'
+import { DocumentDuplicateIcon, PencilSquareIcon, CheckIcon } from '@heroicons/react/24/outline'
+import React, { useEffect, useState } from 'react'
 import Text from '../components/Text'
 import { PrimaryLayout } from '../components/Layouts'
 import { LayoutProps } from '../components/Layouts/types'
@@ -35,7 +36,64 @@ const posts: Post[] = [
   },
 ]
 
+function Button({
+  children,
+  onClick,
+  classes,
+}: {
+  children: React.ReactNode
+  onClick?: any
+  classes?: string
+}) {
+  const defaultClasses =
+    'inline-flex items-center justify-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50'
+  return (
+    <button
+      type="button"
+      className={`${defaultClasses} ${classes}`}
+      onClick={(e) => onClick && onClick(e)}
+    >
+      {children}
+    </button>
+  )
+}
+
+function CopyButton({ onClick }: { onClick: any }) {
+  return (
+    <Button onClick={onClick} classes="w-24">
+      <DocumentDuplicateIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+      Copy
+    </Button>
+  )
+}
+
+function CopiedButton() {
+  return (
+    <Button classes="w-24">
+      <CheckIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+      Copied
+    </Button>
+  )
+}
+
+function ComposeButton() {
+  return (
+    <Link url="mailto:patrick.x.rivera@gmail.com">
+      <Button>
+        <PencilSquareIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+        Compose
+      </Button>
+    </Link>
+  )
+}
+
 function Home() {
+  const [isCopied, setIsCopied] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (isCopied) setTimeout(() => setIsCopied(false), 1500)
+  }, [isCopied])
+
   return (
     <>
       <div>
@@ -133,7 +191,7 @@ function Home() {
         </div>
         <div className="flex flex-col">
           {posts.map(({ title, description, date, url }) => (
-            <div className="w-92 mt-6" key={url}>
+            <div className="w-92 mt-6" key={`${url}-${title}`}>
               <Link url={url}>
                 <h4 className="font-bold">{title}</h4>
                 <p className="mt-2 text-gray-subheading">{description}</p>
@@ -155,24 +213,19 @@ function Home() {
             </div>
             <div className="flex">
               <div className="mr-2">
-                <Link url="mailto:patrick.x.rivera@gmail.com">
-                  <button
-                    type="button"
-                    className="inline-flex items-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50"
-                  >
-                    <PencilSquareIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-                    Compose
-                  </button>
-                </Link>
+                <ComposeButton />
               </div>
               <div>
-                <button
-                  type="button"
-                  className="inline-flex items-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50"
-                >
-                  <DocumentDuplicateIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-                  Copy
-                </button>
+                {isCopied ? (
+                  <CopiedButton />
+                ) : (
+                  <CopyButton
+                    onClick={() => {
+                      setIsCopied(true)
+                      navigator.clipboard.writeText('patrick.x.rivera@gmail.com')
+                    }}
+                  />
+                )}
               </div>
             </div>
           </div>

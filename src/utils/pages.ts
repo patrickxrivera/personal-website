@@ -12,4 +12,12 @@ export const PAGES = {
     url: '/writing',
     title: 'Writing',
   },
+  CAREER: {
+    url: '/career',
+    title: 'Career',
+  },
+  PRODUCTS: {
+    url: '/writing',
+    title: 'Writing',
+  },
 }

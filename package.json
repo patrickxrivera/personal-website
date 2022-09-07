@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@heroicons/react": "^2.0.10",
     "@moxy/next-layout": "^2.2.3",
     "@types/react-fontawesome": "^1.6.5",
     "graphql": "^16.5.0",

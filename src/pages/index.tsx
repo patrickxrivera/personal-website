@@ -1,9 +1,11 @@
 /* eslint-disable react/no-unescaped-entities */
 import { withLayout } from '@moxy/next-layout'
+import { DocumentDuplicateIcon, PencilSquareIcon } from '@heroicons/react/24/outline'
 import Text from '../components/Text'
 import { PrimaryLayout } from '../components/Layouts'
 import { LayoutProps } from '../components/Layouts/types'
 import Link from '../components/Link'
+import { GitHub, Twitter } from '../components/Icons'
 
 type Post = {
   title: string
@@ -125,24 +127,13 @@ function Home() {
           it.
         </Text>
       </div>
-      <div className="mt-8">
+      <div className="mt-16">
         <div>
           <h1 className="text-xl font-bold">Writing</h1>
         </div>
-        {/* <div className="flex mt-4">
-          {posts.map(({ title, description, date, url }) => (
-            <div className="w-56 mr-3.5">
-              <Link url={url}>
-                <h4 className="font-bold">{title}</h4>
-                <p className="mt-2 text-gray-subheading">{description}</p>
-                <p className="mt-2 text-sm text-gray-subheading">{date}</p>
-              </Link>
-            </div>
-          ))}
-        </div> */}
         <div className="flex flex-col">
           {posts.map(({ title, description, date, url }) => (
-            <div className="w-92 mt-6">
+            <div className="w-92 mt-6" key={url}>
               <Link url={url}>
                 <h4 className="font-bold">{title}</h4>
                 <p className="mt-2 text-gray-subheading">{description}</p>
@@ -150,6 +141,57 @@ function Home() {
               </Link>
             </div>
           ))}
+        </div>
+      </div>
+      <div className="mt-16">
+        <div>
+          <h1 className="text-xl font-bold">Contact</h1>
+        </div>
+        <div className="flex flex-col">
+          <div className="flex justify-between w-full mt-6 items-center">
+            <div className="flex flex-col">
+              <span>Email</span>
+              <span className="text-sm text-gray-subheading">patrick.x.rivera@gmail.com</span>
+            </div>
+            <div className="flex">
+              <div className="mr-2">
+                <Link url="mailto:patrick.x.rivera@gmail.com">
+                  <button
+                    type="button"
+                    className="inline-flex items-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50"
+                  >
+                    <PencilSquareIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+                    Compose
+                  </button>
+                </Link>
+              </div>
+              <div>
+                <button
+                  type="button"
+                  className="inline-flex items-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50"
+                >
+                  <DocumentDuplicateIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="flex justify-between w-full mt-6 items-center">
+            <div className="flex flex-col">
+              <span>Say hi</span>
+              <span className="text-sm text-gray-subheading">Don't be a stranger</span>
+            </div>
+            <div className="flex">
+              <div className="mr-4 flex items-center">
+                <Twitter className="h-5 w-5" />
+                <span className="text-sm ml-1">Twitter</span>
+              </div>
+              <div className="flex items-center">
+                <GitHub className="h-5 w-5" />
+                <span className="text-sm ml-1">GitHub</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

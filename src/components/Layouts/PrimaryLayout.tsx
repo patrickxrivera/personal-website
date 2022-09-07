@@ -1,7 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
 import React, { useCallback, useState } from 'react'
-import Link from 'next/link'
 import {
   Beaker,
   Bookmark,
@@ -15,23 +14,7 @@ import {
   SquaresPlus,
   Twitter,
 } from '../Icons'
-
-function SidebarListItem({ isSelected, item }: { isSelected?: boolean; item: SidebarObject }) {
-  const dynamicStyles = isSelected ? 'bg-gray-100' : ''
-
-  const { url, openInNewTab, text, Icon } = item
-
-  return (
-    <Link href={url ?? ''}>
-      <a href={url ?? ''} target={openInNewTab ? '_blank' : '_self'} rel="noreferrer">
-        <li className={`p-1 rounded-md mb-1 flex items-center hover:bg-gray-100 ${dynamicStyles}`}>
-          {Icon}
-          <span className={`${isSelected ? 'text-black' : ''} ml-1 text-sm`}>{text}</span>
-        </li>
-      </a>
-    </Link>
-  )
-}
+import Link from '../Link'
 
 type SidebarObject = {
   text: string
@@ -106,6 +89,23 @@ const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   },
 ]
 
+function SidebarListItem({ isSelected, item }: { isSelected?: boolean; item: SidebarObject }) {
+  const dynamicStyles = isSelected ? 'bg-gray-100' : ''
+
+  const { url, openInNewTab, text, Icon } = item
+
+  return (
+    <Link url={url} openInNewTab={openInNewTab}>
+      <li
+        className={`p-2 mb-0.5 rounded-md mb-1 flex items-center hover:bg-gray-100 hover:cursor-pointer ${dynamicStyles}`}
+      >
+        {Icon}
+        <span className={`${isSelected ? 'text-black' : ''} ml-1 text-sm`}>{text}</span>
+      </li>
+    </Link>
+  )
+}
+
 type Props = {
   children?: React.ReactNode
   headTitle: string
@@ -134,27 +134,27 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
       <main>
         <div className="flex">
           <div
-            className="w-60 h-screen bg-light sticky top-0"
+            className="w-72 h-screen bg-light sticky top-0"
             style={{
               // inspired by Notion's sidebar
               boxShadow: 'rgb(0 0 0 / 2%) -1px 0px 0px 0px inset',
             }}
           >
-            <div className="py-6 px-4">
-              <div className="mb-4">
+            <div className="py-8 px-4">
+              <div className="mb-4 ml-1">
                 <h2 className="font-bold text-md">Patrick X. Rivera</h2>
               </div>
               <div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_ME)}</ul>
               </div>
               <div className="mt-4">
-                <div className="mb-1">
+                <div className="mb-1 ml-1">
                   <h4 className="text-sm font-bold">Favorites</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_FAVORITES)}</ul>
               </div>
               <div className="mt-4">
-                <div className="mb-1">
+                <div className="mb-1 ml-1">
                   <h4 className="text-sm font-bold">Say hi</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_CONTACT)}</ul>
@@ -162,7 +162,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
             </div>
           </div>
           <div className="grow flex justify-center pt-12 bg-gradient-to-b from-indigo-500 p-20">
-            <div className="max-w-2xl bg-white rounded-2xl p-8 shadow-2xl">
+            <div className="max-w-2xl bg-white rounded-2xl p-8 shadow-2xl pb-16">
               <div className="border-b-solid border-b-gray-100 border-b pb-2">
                 <h1 className="font-bold text-2xl">{pageTitle}</h1>
               </div>

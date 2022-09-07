@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
-import Image from 'next/image'
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
 import Text from '../components/Text'
@@ -92,7 +91,9 @@ function Home() {
       items.map(({ text, emoji, Icon }) => (
         <SidebarListItem isSelected={selectedItem === text}>
           {Icon ?? <span>{emoji}</span>}
-          <span className={`${selectedItem === text ? 'text-black' : ''} ml-1`}>{text}</span>
+          <span className={`${selectedItem === text ? 'text-black' : ''} ml-1 text-sm`}>
+            {text}
+          </span>
         </SidebarListItem>
       )),
     [selectedItem]
@@ -135,10 +136,10 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="grow flex justify-center pt-12">
-            <div className="max-w-2xl">
+          <div className="grow flex justify-center pt-12 bg-gradient-to-b from-indigo-500 h-fit">
+            <div className="max-w-2xl bg-white rounded-2xl p-8 shadow-2xl">
               <div className="border-b-solid border-b-gray-100 border-b">
-                <h1 className="font-bold text-2xl my-4">About</h1>
+                <h1 className="font-bold text-2xl">About</h1>
               </div>
               <div>
                 <Text>Welcome 👋</Text>

@@ -6,6 +6,8 @@ import Text from '../components/Text'
 import { PrimaryLayout } from '../components/Layouts'
 import { LayoutProps } from '../components/Layouts/types'
 import Link from '../components/Link'
+import BottomNavigation from '../components/BottomNavigation'
+import { PAGES } from '../utils/pages'
 
 type TimelineItem = {
   id: number
@@ -107,6 +109,7 @@ function Career() {
           </ul>
         </div>
       </div>
+      <BottomNavigation previous={PAGES.ABOUT} next={PAGES.WRITING} />
     </>
   )
 }

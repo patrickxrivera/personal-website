@@ -1,6 +1,7 @@
+/* eslint-disable no-console */
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {
   Beaker,
   Bookmark,
@@ -97,7 +98,7 @@ function SidebarListItem({ isSelected, item }: { isSelected?: boolean; item: Sid
   return (
     <Link url={url} openInNewTab={openInNewTab}>
       <li
-        className={`p-2 mb-0.5 rounded-md mb-1 flex items-center hover:bg-gray-100 hover:cursor-pointer ${dynamicStyles}`}
+        className={`px-3 py-1 mb-0.5 rounded-md mb-1 flex items-center hover:bg-gray-100 hover:cursor-pointer ${dynamicStyles}`}
       >
         {Icon}
         <span className={`${isSelected ? 'text-black' : ''} ml-1 text-sm`}>{text}</span>
@@ -113,8 +114,18 @@ type Props = {
 }
 
 function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
-  // eslint-disable-next-line no-unused-vars
   const [selectedItemText, setSelectedItemText] = useState<string>('About')
+
+  useEffect(() => {
+    const currentPath = window.location.pathname
+    const paths = [...SIDEBAR_LIST_ME, ...SIDEBAR_LIST_FAVORITES]
+    const selectedPath = paths.find((p) => p.url === currentPath)
+    if (selectedPath && selectedPath.text) {
+      setSelectedItemText(selectedPath.text)
+    } else {
+      console.error(`Unkown path: ${currentPath}`)
+    }
+  }, [headTitle])
 
   const renderSidebarList = useCallback(
     (items: SidebarObject[]) =>
@@ -140,22 +151,22 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
               boxShadow: 'rgb(0 0 0 / 2%) -1px 0px 0px 0px inset',
             }}
           >
-            <div className="py-8 px-4">
-              <div className="mb-4 ml-1">
-                <h2 className="font-bold text-md">Patrick X. Rivera</h2>
+            <div className="py-8 px-2">
+              <div className="ml-1">
+                <h2 className="font-bold text-md p-2">Patrick X. Rivera</h2>
               </div>
               <div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_ME)}</ul>
               </div>
               <div className="mt-4">
-                <div className="mb-1 ml-1">
-                  <h4 className="text-sm font-bold">Favorites</h4>
+                <div className="ml-1">
+                  <h4 className="text-sm font-bold p-2">Favorites</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_FAVORITES)}</ul>
               </div>
               <div className="mt-4">
-                <div className="mb-1 ml-1">
-                  <h4 className="text-sm font-bold">Say hi</h4>
+                <div className="ml-1">
+                  <h4 className="text-sm font-bold p-2">Say hi</h4>
                 </div>
                 <ul>{renderSidebarList(SIDEBAR_LIST_CONTACT)}</ul>
               </div>

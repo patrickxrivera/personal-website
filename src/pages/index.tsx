@@ -2,6 +2,7 @@
 import { withLayout } from '@moxy/next-layout'
 import { DocumentDuplicateIcon, PencilSquareIcon, CheckIcon } from '@heroicons/react/24/outline'
 import React, { useEffect, useState } from 'react'
+import Image from 'next/image'
 import Text from '../components/Text'
 import { PrimaryLayout } from '../components/Layouts'
 import { LayoutProps } from '../components/Layouts/types'
@@ -17,7 +18,14 @@ type Post = {
 
 const posts: Post[] = [
   {
-    title: 'Come for the creator, stay for the economy',
+    title: 'Crypto Fundamentals and NFTs',
+    description:
+      'Presentation for the On Deck community that covers: eras of the web, blockchain architecture, last 10 years of crypto, rise of NFTs, and the future of NFTs',
+    date: 'March 12th, 2021',
+    url: 'https://p.mirror.xyz',
+  },
+  {
+    title: 'Come for the Creator, Stay for the Economy',
     description: 'Lorem ipsum solar deleris. Lorem ipsum solar deleris.',
     date: 'April 20th, 2021',
     url: 'https://p.mirror.xyz',
@@ -29,10 +37,65 @@ const posts: Post[] = [
     url: 'https://p.mirror.xyz',
   },
   {
-    title: 'A guide to crypto tokens',
+    title: 'A Guide to Crypto Tokens',
     description: 'Lorem ipsum solar deleris. Lorem ipsum solar deleris.',
     date: 'April 20th, 2021',
     url: 'https://p.mirror.xyz',
+  },
+  {
+    title: 'Community DAOs',
+    description: 'Lorem ipsum solar deleris. Lorem ipsum solar deleris.',
+    date: 'April 20th, 2021',
+    url: 'https://p.mirror.xyz',
+  },
+  {
+    title: 'Tips for Creators Getting Into Crypto',
+    description: 'Lorem ipsum solar deleris. Lorem ipsum solar deleris.',
+    date: 'April 20th, 2021',
+    url: 'https://p.mirror.xyz',
+  },
+]
+
+type TimelineItem = {
+  id: number
+  company: string
+  role: string
+  url: string
+  date: string
+  description: string
+  logoPath: string
+}
+
+const timeline: TimelineItem[] = [
+  {
+    id: 1,
+    company: 'Mirror.xyz',
+    role: 'Product Engineer, Growth',
+    url: 'https://mirror.xyz',
+    date: 'Mar 2021 - Sep 2022 · 1 yr 7 mos',
+    description:
+      'Cras eget hendrerit purus. Maecenas at tellus mauris. Phasellus sodales facilisis pellentesque. Duis venenatis, enim non volutpat bibendum, augue nisl commodo ligula, ac mattis dolor nibh sit amet ipsum. Fusce nisi enim, congue ut gravida vel, imperdiet a diam. Sed sollicitudin risus vitae dolor rhoncus, in vehicula velit pharetra. Proin suscipit rhoncus diam quis rutrum. ',
+    logoPath: '/mirror-logo.jpeg',
+  },
+  {
+    id: 2,
+    company: 'Dharma',
+    role: 'Product Engineer, Growth',
+    url: 'https://techcrunch.com/2022/01/18/opensea-buys-defi-wallet-startup-dharma-labs-appoints-new-cto/',
+    date: 'Jan 2020 - Oct 2020 · 10 mos',
+    description:
+      'Cras eget hendrerit purus. Maecenas at tellus mauris. Phasellus sodales facilisis pellentesque. Duis venenatis, enim non volutpat bibendum, augue nisl commodo ligula, ac mattis dolor nibh sit amet ipsum. Fusce nisi enim, congue ut gravida vel, imperdiet a diam. Sed sollicitudin risus vitae dolor rhoncus, in vehicula velit pharetra. Proin suscipit rhoncus diam quis rutrum. ',
+    logoPath: '/dharma-logo.jpeg',
+  },
+  {
+    id: 3,
+    company: 'Instacart',
+    role: 'Product Engineer, Growth',
+    url: 'https://instacart.com',
+    date: 'Nov 2018 - Jan 2020 · 1 yr 3 mos',
+    description:
+      'Cras eget hendrerit purus. Maecenas at tellus mauris. Phasellus sodales facilisis pellentesque. Duis venenatis, enim non volutpat bibendum, augue nisl commodo ligula, ac mattis dolor nibh sit amet ipsum. Fusce nisi enim, congue ut gravida vel, imperdiet a diam. Sed sollicitudin risus vitae dolor rhoncus, in vehicula velit pharetra. Proin suscipit rhoncus diam quis rutrum. ',
+    logoPath: '/instacart-logo.jpeg',
   },
 ]
 
@@ -152,12 +215,8 @@ function Home() {
           .
         </Text>
         <Text>
-          I love using well-crafted products (see a few of my favorite{' '}
-          <Link url="/products" className="underline decoration-emerald-500">
-            here
-          </Link>
-          ) and feel like the best way I can be of service to the world is by creating products that
-          people love.
+          I love using well-crafted products and feel like the best way I can be of service to the
+          world is by creating products that people love.
         </Text>
         <Text>My philosophy for building products can be summarized with this quote below:</Text>
         <div className="border-l-2 border-l-black border-l-solid pl-2">
@@ -186,6 +245,47 @@ function Home() {
         </Text>
       </div>
       <div className="mt-16">
+        <div className="mb-8">
+          <h1 className="text-xl font-bold">Career</h1>
+        </div>
+        <div className="flow-root">
+          <ul className="-mb-8">
+            {timeline.map((event, eventIdx) => (
+              <li key={event.id}>
+                <div className="relative pb-8">
+                  {eventIdx !== timeline.length - 1 ? (
+                    <span
+                      className="absolute top-4 left-4 -ml-px h-full w-0.5 bg-gray-200"
+                      aria-hidden="true"
+                    />
+                  ) : null}
+                  <div className="relative flex space-x-3">
+                    <div>
+                      <span className="h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white">
+                        <Link url={event.url} openInNewTab>
+                          <Image
+                            src={event.logoPath}
+                            width={72}
+                            height={72}
+                            className="rounded-full"
+                          />
+                        </Link>
+                      </span>
+                    </div>
+                    <div className="flex flex-col">
+                      <h2 className="font-bold">{event.company}</h2>
+                      <span className="text-sm text-gray-subheading">{event.role}</span>
+                      <span className="text-sm text-gray-subheading">{event.date}</span>
+                      <span className="mt-2 text-sm">{event.description}</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div className="mt-16">
         <div>
           <h1 className="text-xl font-bold">Writing</h1>
         </div>
@@ -194,7 +294,7 @@ function Home() {
             <div className="w-92 mt-6" key={`${url}-${title}`}>
               <Link url={url}>
                 <h4 className="font-bold">{title}</h4>
-                <p className="mt-2 text-gray-subheading">{description}</p>
+                <p className="mt-2 text-sm">{description}</p>
                 <p className="mt-2 text-sm text-gray-subheading">{date}</p>
               </Link>
             </div>
@@ -208,7 +308,7 @@ function Home() {
         <div className="flex flex-col">
           <div className="flex justify-between w-full mt-6 items-center">
             <div className="flex flex-col">
-              <span>Email</span>
+              <span className="text-sm">Email</span>
               <span className="text-sm text-gray-subheading">patrick.x.rivera@gmail.com</span>
             </div>
             <div className="flex">
@@ -231,7 +331,7 @@ function Home() {
           </div>
           <div className="flex justify-between w-full mt-6 items-center">
             <div className="flex flex-col">
-              <span>Say hi</span>
+              <span className="text-sm">Say hi</span>
               <span className="text-sm text-gray-subheading">Don't be a stranger</span>
             </div>
             <div className="flex">

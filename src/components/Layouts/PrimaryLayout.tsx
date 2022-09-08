@@ -69,7 +69,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
       <main>
         <div className="flex">
           <div
-            className="w-72 h-screen bg-light sticky top-0"
+            className="lg:w-72 lg:block h-screen bg-light sticky top-0 hidden"
             style={{
               // inspired by Notion's sidebar
               boxShadow: 'rgb(0 0 0 / 2%) -1px 0px 0px 0px inset',

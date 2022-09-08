@@ -209,7 +209,7 @@ function Home() {
         </Text>
         <Text>
           I love using well-crafted products and feel like the best way I can be of service to the
-          world is by creating products that people love.
+          world is by creating products people love.
         </Text>
         <Text>This quote is a pretty good summary of my product philosophy:</Text>
         <div className="border-l-2 border-l-black border-l-solid pl-2">

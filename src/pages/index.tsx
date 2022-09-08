@@ -333,14 +333,18 @@ function Home() {
               <span className="text-lg lg:text-sm text-gray-subheading">Don't be a stranger</span>
             </div>
             <div className="flex mt-2 lg:mt-0">
-              <div className="mr-4 flex items-center">
-                <Twitter className="h-5 w-5" />
-                <span className="text-lg lg:text-sm ml-1">Twitter</span>
-              </div>
-              <div className="flex items-center">
-                <GitHub className="h-5 w-5" />
-                <span className="text-lg lg:text-sm ml-1">GitHub</span>
-              </div>
+              <Link url="https://twitter.com/patrickxrivera" openInNewTab>
+                <div className="mr-4 flex items-center">
+                  <Twitter className="h-5 w-5" />
+                  <span className="text-lg lg:text-sm ml-1">Twitter</span>
+                </div>
+              </Link>
+              <Link url="https://github.com/patrickxrivera" openInNewTab>
+                <div className="flex items-center">
+                  <GitHub className="h-5 w-5" />
+                  <span className="text-lg lg:text-sm ml-1">GitHub</span>
+                </div>
+              </Link>
             </div>
           </div>
         </div>

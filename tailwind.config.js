@@ -11,6 +11,7 @@ module.exports = {
       },
       width: {
         'desktop-container': '672px',
+        'md-container': '600px',
       },
     },
   },

@@ -162,12 +162,11 @@ function Home() {
       <div>
         <Text>Welcome 👋</Text>
         <Text>
-          My name is Patrick Rivera and I've spent the past few years building consumer apps in
+          My name is Patrick Rivera and I've spent the past few years building consumer products in
           crypto / web3.
         </Text>
         <Text>
-          Although I'm trained as an engineer, I consider myself a product designer at heart. My
-          approach to building products comes from studying a variety of disciples, such as:{' '}
+          My approach to building products comes from studying a variety of disciples, such as:{' '}
           <a
             href="https://behaviormodel.org/"
             target="blank"
@@ -218,7 +217,7 @@ function Home() {
           I love using well-crafted products and feel like the best way I can be of service to the
           world is by creating products that people love.
         </Text>
-        <Text>My philosophy for building products can be summarized with this quote below:</Text>
+        <Text>This quote is a pretty good summary of my product philosophy:</Text>
         <div className="border-l-2 border-l-black border-l-solid pl-2">
           <Text italic noMargin>
             Too many math/quant people are making games now. Your job isn’t to create “perfect
@@ -226,7 +225,7 @@ function Home() {
             Imagine “economy designers” making GTA.
           </Text>
           <div className="flex items-center my-2">
-            <div className="flex flex-col italic text-gray-subheading text-base lg:text-sm">
+            <div className="flex flex-col italic text-gray-subheading text-lg lg:text-sm">
               <span>Gabriel Leydon, game designer</span>
               <span className="underline underline-offset-4 decoration-1 decoration-gray-300">
                 <a
@@ -244,7 +243,7 @@ function Home() {
           it.
         </Text>
       </div>
-      <div className="mt-8 lg:mt-16">
+      <div className="mt-8 lg:mt-12">
         <div className="mb-6 lg:mb-8">
           <h1 className="text-2xl lg:text-xl font-bold">Career</h1>
         </div>
@@ -285,8 +284,8 @@ function Home() {
           </ul>
         </div>
       </div>
-      <div className="mt-8 lg:mt-16">
-        <div className="lg:mb-8">
+      <div className="mt-8 lg:mt-12">
+        <div>
           <h1 className="text-2xl lg:text-xl font-bold">Writing</h1>
         </div>
         <div className="flex flex-col">
@@ -301,8 +300,8 @@ function Home() {
           ))}
         </div>
       </div>
-      <div className="mt-8 lg:mt-16">
-        <div className="lg:mb-8">
+      <div className="mt-8 lg:mt-12">
+        <div>
           <h1 className="text-2xl lg:text-xl font-bold">Contact</h1>
         </div>
         <div className="flex flex-col">

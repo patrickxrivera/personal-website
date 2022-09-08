@@ -1,5 +1,0 @@
-fragment userErrorDetails on UserError {
-  message
-  path
-  data
-}

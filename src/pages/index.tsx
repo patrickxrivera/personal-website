@@ -160,7 +160,7 @@ function Home() {
           crypto / web3.
         </Text>
         <Text>
-          My approach to building products comes from studying a variety of disciples, such as:{' '}
+          My approach to building products comes from studying a variety of disciplines, such as:{' '}
           <a
             href="https://behaviormodel.org/"
             target="blank"

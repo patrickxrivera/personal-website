@@ -302,7 +302,7 @@ function Home() {
           <h1 className="text-2xl lg:text-xl font-bold">Contact</h1>
         </div>
         <div className="flex flex-col">
-          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-6 lg:items-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-4 lg:mt-6 lg:items-center">
             <div className="flex flex-col">
               <span className="text-lg lg:text-sm">Email</span>
               <span className="text-lg lg:text-sm text-gray-subheading">
@@ -327,7 +327,7 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-6 lg:items-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-4 lg:mt-6 lg:items-center">
             <div className="flex flex-col">
               <span className="text-lg lg:text-sm">Say hi</span>
               <span className="text-lg lg:text-sm text-gray-subheading">Don't be a stranger</span>

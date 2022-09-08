@@ -84,8 +84,8 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
               </div>
             </div>
           </div>
-          <div className="grow flex justify-center pt-12 bg-gradient-to-b from-indigo-500 p-20">
-            <div className="bg-white rounded-2xl p-8 shadow-2xl pb-16" style={{ width: '672px' }}>
+          <div className="grow flex justify-center bg-gradient-to-b from-indigo-500 p-6 lg:pt-12 lg:p-20">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 lg:pb-16 mb-12 lg:mb-0 lg:w-desktop-container">
               <div className="border-b-solid border-b-gray-100 border-b pb-2">
                 <h1 className="font-bold text-2xl">{pageTitle}</h1>
               </div>

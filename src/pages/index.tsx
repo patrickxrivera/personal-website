@@ -109,7 +109,7 @@ function Button({
   classes?: string
 }) {
   const defaultClasses =
-    'inline-flex items-center justify-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-sm shadow-sm hover:bg-gray-50'
+    'inline-flex items-center justify-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-lg lg:text-sm shadow-sm hover:bg-gray-50'
   return (
     <button
       type="button"
@@ -226,7 +226,7 @@ function Home() {
             Imagine “economy designers” making GTA.
           </Text>
           <div className="flex items-center my-2">
-            <div className="flex flex-col italic text-gray-subheading text-sm">
+            <div className="flex flex-col italic text-gray-subheading text-base lg:text-sm">
               <span>Gabriel Leydon, game designer</span>
               <span className="underline underline-offset-4 decoration-1 decoration-gray-300">
                 <a
@@ -244,9 +244,9 @@ function Home() {
           it.
         </Text>
       </div>
-      <div className="mt-16">
-        <div className="mb-8">
-          <h1 className="text-xl font-bold">Career</h1>
+      <div className="mt-8 lg:mt-16">
+        <div className="mb-6 lg:mb-8">
+          <h1 className="text-2xl lg:text-xl font-bold">Career</h1>
         </div>
         <div className="flow-root">
           <ul className="-mb-8">
@@ -261,7 +261,7 @@ function Home() {
                   ) : null}
                   <div className="relative flex space-x-3">
                     <div>
-                      <span className="h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white">
+                      <span className="h-10 w-10 lg:h-8 lg:w-8 rounded-full flex items-center justify-center ring-8 ring-white">
                         <Link url={event.url} openInNewTab>
                           <Image
                             src={event.logoPath}
@@ -273,10 +273,10 @@ function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col">
-                      <h2 className="font-bold">{event.company}</h2>
-                      <span className="text-sm text-gray-subheading">{event.role}</span>
-                      <span className="text-sm text-gray-subheading">{event.date}</span>
-                      <span className="mt-2 text-sm">{event.description}</span>
+                      <h2 className="font-bold text-xl lg:text-base">{event.company}</h2>
+                      <span className="text-lg lg:text-sm text-gray-subheading">{event.role}</span>
+                      <span className="text-lg lg:text-sm text-gray-subheading">{event.date}</span>
+                      <span className="mt-2 text-lg lg:text-sm">{event.description}</span>
                     </div>
                   </div>
                 </div>
@@ -285,33 +285,35 @@ function Home() {
           </ul>
         </div>
       </div>
-      <div className="mt-16">
-        <div>
-          <h1 className="text-xl font-bold">Writing</h1>
+      <div className="mt-8 lg:mt-16">
+        <div className="lg:mb-8">
+          <h1 className="text-2xl lg:text-xl font-bold">Writing</h1>
         </div>
         <div className="flex flex-col">
           {posts.map(({ title, description, date, url }) => (
             <div className="w-92 mt-6" key={`${url}-${title}`}>
-              <Link url={url}>
-                <h4 className="font-bold">{title}</h4>
-                <p className="mt-2 text-sm">{description}</p>
-                <p className="mt-2 text-sm text-gray-subheading">{date}</p>
+              <Link url={url} openInNewTab>
+                <h4 className="font-bold text-lg lg:text-base">{title}</h4>
+                <p className="mt-2 text-lg lg:text-sm">{description}</p>
+                <p className="mt-2 text-lg lg:text-sm text-gray-subheading">{date}</p>
               </Link>
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-16">
-        <div>
-          <h1 className="text-xl font-bold">Contact</h1>
+      <div className="mt-8 lg:mt-16">
+        <div className="lg:mb-8">
+          <h1 className="text-2xl lg:text-xl font-bold">Contact</h1>
         </div>
         <div className="flex flex-col">
-          <div className="flex justify-between w-full mt-6 items-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-6 lg:items-center">
             <div className="flex flex-col">
-              <span className="text-sm">Email</span>
-              <span className="text-sm text-gray-subheading">patrick.x.rivera@gmail.com</span>
+              <span className="text-lg lg:text-sm">Email</span>
+              <span className="text-lg lg:text-sm text-gray-subheading">
+                patrick.x.rivera@gmail.com
+              </span>
             </div>
-            <div className="flex">
+            <div className="flex mt-2 lg:mt-0">
               <div className="mr-2">
                 <ComposeButton />
               </div>
@@ -329,19 +331,19 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between w-full mt-6 items-center">
+          <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-6 lg:items-center">
             <div className="flex flex-col">
-              <span className="text-sm">Say hi</span>
-              <span className="text-sm text-gray-subheading">Don't be a stranger</span>
+              <span className="text-lg lg:text-sm">Say hi</span>
+              <span className="text-lg lg:text-sm text-gray-subheading">Don't be a stranger</span>
             </div>
-            <div className="flex">
+            <div className="flex mt-2 lg:mt-0">
               <div className="mr-4 flex items-center">
                 <Twitter className="h-5 w-5" />
-                <span className="text-sm ml-1">Twitter</span>
+                <span className="text-lg lg:text-sm ml-1">Twitter</span>
               </div>
               <div className="flex items-center">
                 <GitHub className="h-5 w-5" />
-                <span className="text-sm ml-1">GitHub</span>
+                <span className="text-lg lg:text-sm ml-1">GitHub</span>
               </div>
             </div>
           </div>

@@ -9,6 +9,9 @@ module.exports = {
         'black-custom': 'rgba(31, 34, 37, 0.9)',
         'gray-subheading': '#64748b',
       },
+      width: {
+        'desktop-container': '672px',
+      },
     },
   },
   plugins: [],

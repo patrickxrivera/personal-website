@@ -1,20 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
-import React, { useCallback, useEffect, useState } from 'react'
-import {
-  Beaker,
-  Bookmark,
-  GitHub,
-  Home as HomeIcon,
-  Mail,
-  MobilePhone,
-  MusicalNote,
-  PaintBrush,
-  Pencil,
-  SquaresPlus,
-  Twitter,
-} from '../Icons'
+import React from 'react'
+import { GitHub, Mail, Twitter } from '../Icons'
 import Link from '../Link'
 
 type SidebarObject = {
@@ -23,52 +11,6 @@ type SidebarObject = {
   url: string
   openInNewTab?: boolean
 }
-
-const SIDEBAR_LIST_ME: SidebarObject[] = [
-  {
-    text: 'About',
-    url: '/',
-    Icon: <HomeIcon />,
-  },
-  {
-    text: 'Career',
-    url: '/career',
-    Icon: <Beaker />,
-  },
-  {
-    text: 'Writing',
-    url: '/writing',
-    Icon: <Pencil />,
-  },
-]
-
-const SIDEBAR_LIST_FAVORITES: SidebarObject[] = [
-  {
-    text: 'Products',
-    url: '/products',
-    Icon: <MobilePhone />,
-  },
-  {
-    text: 'Creators',
-    url: '/creators',
-    Icon: <PaintBrush />,
-  },
-  {
-    text: 'Games',
-    url: '/games',
-    Icon: <SquaresPlus />,
-  },
-  {
-    text: 'Music',
-    url: '/music',
-    Icon: <MusicalNote />,
-  },
-  {
-    text: 'Resources',
-    url: '/resources',
-    Icon: <Bookmark />,
-  },
-]
 
 const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   {
@@ -114,26 +56,8 @@ type Props = {
 }
 
 function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
-  const [selectedItemText, setSelectedItemText] = useState<string>('About')
-
-  useEffect(() => {
-    const currentPath = window.location.pathname
-    const paths = [...SIDEBAR_LIST_ME, ...SIDEBAR_LIST_FAVORITES]
-    const selectedPath = paths.find((p) => p.url === currentPath)
-    if (selectedPath && selectedPath.text) {
-      setSelectedItemText(selectedPath.text)
-    } else {
-      console.error(`Unkown path: ${currentPath}`)
-    }
-  }, [headTitle])
-
-  const renderSidebarList = useCallback(
-    (items: SidebarObject[]) =>
-      items.map((item) => (
-        <SidebarListItem key={item.text} item={item} isSelected={item.text === selectedItemText} />
-      )),
-    [selectedItemText]
-  )
+  const renderSidebarList = (items: SidebarObject[]) =>
+    items.map((item) => <SidebarListItem key={item.text} item={item} isSelected={false} />)
 
   return (
     <div>
@@ -155,19 +79,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
               <div className="ml-1">
                 <h2 className="font-bold text-md p-2">Patrick X. Rivera</h2>
               </div>
-              <div>
-                <ul>{renderSidebarList(SIDEBAR_LIST_ME)}</ul>
-              </div>
-              <div className="mt-4">
-                <div className="ml-1">
-                  <h4 className="text-sm font-bold p-2">Favorites</h4>
-                </div>
-                <ul>{renderSidebarList(SIDEBAR_LIST_FAVORITES)}</ul>
-              </div>
-              <div className="mt-4">
-                <div className="ml-1">
-                  <h4 className="text-sm font-bold p-2">Say hi</h4>
-                </div>
+              <div className="mt-1">
                 <ul>{renderSidebarList(SIDEBAR_LIST_CONTACT)}</ul>
               </div>
             </div>

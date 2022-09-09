@@ -2,7 +2,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
 import React from 'react'
-import { GitHub, Mail, Twitter } from '../Icons'
+import { EnvelopeIcon } from '@heroicons/react/24/outline'
+import { GitHub, Twitter } from '../Icons'
 import Link from '../Link'
 
 type SidebarObject = {
@@ -16,17 +17,17 @@ const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
   {
     text: 'Email',
     url: 'mailto:patrick.x.rivera@gmail.com',
-    Icon: <Mail />,
+    Icon: <EnvelopeIcon height={22} width={22} />,
   },
   {
     text: 'Twitter',
-    Icon: <Twitter />,
+    Icon: <Twitter className="h-5 w-5" />,
     url: 'https://twitter.com/patrickxrivera',
     openInNewTab: true,
   },
   {
     text: 'GitHub',
-    Icon: <GitHub />,
+    Icon: <GitHub className="h-5 w-5" />,
     url: 'https://github.com/patrickxrivera',
     openInNewTab: true,
   },
@@ -43,7 +44,7 @@ function SidebarListItem({ isSelected, item }: { isSelected?: boolean; item: Sid
         className={`px-3 py-1 mb-0.5 rounded-md mb-1 flex items-center hover:bg-gray-100 hover:cursor-pointer ${dynamicStyles}`}
       >
         {Icon}
-        <span className={`${isSelected ? 'text-black' : ''} ml-1 text-sm`}>{text}</span>
+        <span className={`${isSelected ? 'text-black' : ''} ml-1`}>{text}</span>
       </li>
     </Link>
   )
@@ -77,7 +78,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
           >
             <div className="py-8 px-2">
               <div className="ml-1">
-                <h2 className="font-bold text-md p-2">Patrick X. Rivera</h2>
+                <h2 className="font-bold text-xl p-2">Patrick X. Rivera</h2>
               </div>
               <div className="mt-1">
                 <ul>{renderSidebarList(SIDEBAR_LIST_CONTACT)}</ul>
@@ -85,7 +86,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
             </div>
           </div>
           <div className="grow flex justify-center bg-gradient-to-b from-indigo-500 p-6 lg:pt-12 lg:p-20">
-            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 lg:pb-16 mb-12 lg:mb-0 lg:w-desktop-container md:w-md-container">
+            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 lg:pb-12 mb-12 lg:mb-0 lg:w-desktop-container md:w-md-container">
               <div className="border-b-solid border-b-gray-100 border-b pb-2">
                 <h1 className="font-bold text-2xl">{pageTitle}</h1>
               </div>

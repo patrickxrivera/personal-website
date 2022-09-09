@@ -103,7 +103,7 @@ function Button({
   classes?: string
 }) {
   const defaultClasses =
-    'inline-flex items-center justify-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-base lg:text-sm shadow-sm hover:bg-gray-50'
+    'inline-flex items-center justify-center rounded border border-gray-200 bg-white px-2.5 py-1.5 text-lg lg:text-base shadow-sm hover:bg-gray-50'
   return (
     <button
       type="button"
@@ -219,7 +219,7 @@ function Home() {
             Imagine “economy designers” making GTA.
           </Text>
           <div className="flex items-center my-2">
-            <div className="flex flex-col italic text-gray-subheading text-base lg:text-sm">
+            <div className="flex flex-col italic text-gray-subheading text-lg lg:text-base">
               <span>Gabriel Leydon, game designer</span>
               <span className="underline underline-offset-4 decoration-1 decoration-gray-300">
                 <a
@@ -239,7 +239,7 @@ function Home() {
       </div>
       <div className="mt-8 lg:mt-12">
         <div className="mb-6 lg:mb-8">
-          <h1 className="text-2xl lg:text-xl font-bold">Career</h1>
+          <h1 className="text-2xl lg:text-2xl font-bold">Career</h1>
         </div>
         <div className="flow-root">
           <ul className="-mb-8">
@@ -266,14 +266,14 @@ function Home() {
                       </span>
                     </div>
                     <div className="flex flex-col">
-                      <h2 className="font-bold text-xl lg:text-base">{event.company}</h2>
-                      <span className="text-base lg:text-sm text-gray-subheading">
+                      <h2 className="font-bold text-xl lg:text-xl">{event.company}</h2>
+                      <span className="text-lg lg:text-base text-gray-subheading">
                         {event.role}
                       </span>
-                      <span className="text-base lg:text-sm text-gray-subheading">
+                      <span className="text-lg lg:text-base text-gray-subheading">
                         {event.date}
                       </span>
-                      <span className="mt-2 text-base lg:text-sm">{event.description}</span>
+                      <span className="mt-2 text-lg lg:text-base">{event.description}</span>
                     </div>
                   </div>
                 </div>
@@ -284,18 +284,18 @@ function Home() {
       </div>
       <div className="mt-8 lg:mt-12">
         <div>
-          <h1 className="text-2xl lg:text-xl font-bold">Writing</h1>
+          <h1 className="text-2xl lg:text-2xl font-bold">Writing</h1>
         </div>
         <div className="flex flex-col">
           {posts.map(({ title, description, date, url }) => (
             <div className="w-92 mt-6" key={`${url}-${title}`}>
               <Link url={url} openInNewTab>
                 <div className="flex items-center">
-                  <h4 className="font-bold text-xl lg:text-base">{title}</h4>
+                  <h4 className="font-bold text-xl lg:text-xl">{title}</h4>
                   <ArrowUpRightIcon className="ml-2" width={18} height={18} strokeWidth={2} />
                 </div>
-                <p className="mt-2 text-base lg:text-sm">{description}</p>
-                <p className="mt-2 text-base lg:text-sm text-gray-subheading">{date}</p>
+                <p className="mt-2 text-lg lg:text-base">{description}</p>
+                <p className="mt-2 text-lg lg:text-base text-gray-subheading">{date}</p>
               </Link>
             </div>
           ))}
@@ -303,13 +303,13 @@ function Home() {
       </div>
       <div className="mt-8 lg:mt-12">
         <div>
-          <h1 className="text-2xl lg:text-xl font-bold">Contact</h1>
+          <h1 className="text-2xl lg:text-2xl font-bold">Contact</h1>
         </div>
         <div className="flex flex-col">
           <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-4 lg:mt-6 lg:items-center">
             <div className="flex flex-col">
-              <span className="text-base lg:text-sm">Email</span>
-              <span className="text-base lg:text-sm text-gray-subheading">
+              <span className="text-lg lg:text-base">Email</span>
+              <span className="text-lg lg:text-base text-gray-subheading">
                 patrick.x.rivera@gmail.com
               </span>
             </div>
@@ -333,20 +333,20 @@ function Home() {
           </div>
           <div className="flex flex-col lg:flex-row lg:justify-between w-full mt-4 lg:mt-6 lg:items-center">
             <div className="flex flex-col">
-              <span className="text-base lg:text-sm">Say hi</span>
-              <span className="text-base lg:text-sm text-gray-subheading">Don't be a stranger</span>
+              <span className="text-lg lg:text-base">Say hi</span>
+              <span className="text-lg lg:text-base text-gray-subheading">Don't be a stranger</span>
             </div>
             <div className="flex mt-2 lg:mt-0">
               <Link url="https://twitter.com/patrickxrivera" openInNewTab>
                 <div className="mr-4 flex items-center">
                   <Twitter className="h-5 w-5" />
-                  <span className="text-base lg:text-sm ml-1">Twitter</span>
+                  <span className="text-lg lg:text-base ml-1">Twitter</span>
                 </div>
               </Link>
               <Link url="https://github.com/patrickxrivera" openInNewTab>
                 <div className="flex items-center">
                   <GitHub className="h-5 w-5" />
-                  <span className="text-base lg:text-sm ml-1">GitHub</span>
+                  <span className="text-lg lg:text-base ml-1">GitHub</span>
                 </div>
               </Link>
             </div>

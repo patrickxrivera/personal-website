@@ -5,3 +5,33 @@
 html {
   @apply text-black-custom;
 }
+
+@font-face {
+  font-family: 'SFProRounded';
+  font-weight: 700;
+  src: local('SFProRounded'), url(../../fonts/SF-Pro-Rounded-Bold.ttf);
+}
+
+@font-face {
+  font-family: 'SFProRounded';
+  font-weight: 600;
+  src: local('SFProRounded'), url(../../fonts/SF-Pro-Rounded-Semibold.ttf);
+}
+
+@font-face {
+  font-family: 'SFProRounded';
+  font-weight: 500;
+  src: local('SFProRounded'), url(../../fonts/SF-Pro-Rounded-Medium.ttf);
+}
+
+@font-face {
+  font-family: 'SFProRounded';
+  font-weight: 400;
+  src: local('SFProRounded'), url(../../fonts/SF-Pro-Rounded-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'SFProRounded';
+  font-weight: 300;
+  src: local('SFProRounded'), url(../../fonts/SF-Pro-Rounded-Light.ttf);
+}

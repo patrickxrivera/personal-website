@@ -18,15 +18,13 @@ module.exports = {
         'md-container': '600px',
       },
       animation: {
-        'splash-screen': 'splash-screen 2.5s ease-in-out',
+        'splash-screen': 'splash-screen 0.75s ease-in-out',
         'fade-in': 'fade-in 0.5s ease-in',
       },
       keyframes: {
         'splash-screen': {
           '0%': { opacity: 1 },
-          '25%': { opacity: 0 },
-          '50%': { opacity: 1 },
-          '75%': { opacity: 0 },
+          '50%': { opacity: 0 },
           '100%': { opacity: 1 },
         },
         'fade-in': {

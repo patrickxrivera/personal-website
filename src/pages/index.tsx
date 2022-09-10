@@ -112,8 +112,8 @@ function Home() {
           .
         </Text>
         <Text>
-          I love using well-crafted products and feel like the best way I can be of service to the
-          world is by creating products people love.
+          I love using well-crafted products and feel the best way I can be of service to the world
+          is by creating products people love.
         </Text>
       </div>
       <div className="mt-8 lg:mt-12">

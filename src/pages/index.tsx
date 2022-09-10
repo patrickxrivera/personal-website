@@ -60,8 +60,8 @@ function Home() {
     <PrimaryLayout headTitle={HEAD_TITLE} pageTitle={PAGE_TITLE}>
       <div>
         <Text>
-          My name is Patrick Rivera and I've spent the past few years building consumer products in
-          crypto / web3.
+          My name is Patrick and I've spent the past few years building consumer products in crypto
+          / web3.
         </Text>
         <Text>
           My approach to building products comes from studying a variety of disciplines, such as:{' '}

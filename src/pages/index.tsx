@@ -68,7 +68,7 @@ const timeline: TimelineItem[] = [
     url: 'https://mirror.xyz',
     date: 'Mar 2021 - Sep 2022 · 1 yr 7 mos',
     description:
-      'Home for web3 publishing. Backed by A16Z Crypto, USV, Variant Fund, Balaji, Naval, and others. I was employee #3.\n\nWrote product specs, built full-stack features, integrated smart contracts, and worked closely with creators and community builders to harness the power of web3.',
+      'Home for web3 publishing. Backed by A16Z Crypto, USV, Variant Fund, Balaji, Naval, and others. I was employee #3.\n\nWrote product specs, built full-stack features, integrated smart contracts, and worked closely with creators and community builders on custom projects.',
     logoPath: '/mirror-logo.jpeg',
   },
   {
@@ -88,7 +88,7 @@ const timeline: TimelineItem[] = [
     url: 'https://instacart.com',
     date: 'Nov 2018 - Jan 2020 · 1 yr 3 mos',
     description:
-      'Full-stack engineer on the Growth team building features to engage and retain customers.',
+      'Full-stack engineer on the Growth team building features to engage and retain customers. Product was growing 100% YoY on > $1B in GMV so I learned how to move quickly while shipping high-quality features at scale.',
     logoPath: '/instacart-logo.jpeg',
   },
 ]

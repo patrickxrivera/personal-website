@@ -211,31 +211,6 @@ function Home() {
           I love using well-crafted products and feel like the best way I can be of service to the
           world is by creating products people love.
         </Text>
-        <Text>This quote is a pretty good summary of my product philosophy:</Text>
-        <div className="border-l-2 border-l-black border-l-solid pl-2">
-          <Text italic noMargin>
-            Too many math/quant people are making games now. Your job isn’t to create “perfect
-            balance”. Your job is to make people lose their minds (and have fun while doing it)!
-            Imagine “economy designers” making GTA.
-          </Text>
-          <div className="flex items-center my-2">
-            <div className="flex flex-col italic text-gray-subheading text-lg lg:text-base">
-              <span>Gabriel Leydon, game designer</span>
-              <span className="underline underline-offset-4 decoration-1 decoration-gray-300">
-                <a
-                  href="https://twitter.com/gabrielleydon/status/1559795337694392320"
-                  target="blank"
-                >
-                  Source
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-        <Text>
-          My goal is to build products that make people lose their minds and have fun while doing
-          it.
-        </Text>
       </div>
       <div className="mt-8 lg:mt-12">
         <div className="mb-6 lg:mb-8">

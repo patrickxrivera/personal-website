@@ -2,6 +2,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Head from 'next/head'
 import React from 'react'
+import { motion } from 'framer-motion'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
 import { GitHub, Twitter } from '../Icons'
 import Link from '../Link'
@@ -70,7 +71,7 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
       <main>
         <div className="flex">
           <div
-            className="lg:w-72 lg:block h-screen bg-light sticky top-0 hidden"
+            className="animate-fade-in lg:w-72 lg:block h-screen bg-light sticky top-0 hidden"
             style={{
               // inspired by Notion's sidebar
               boxShadow: 'rgb(0 0 0 / 2%) -1px 0px 0px 0px inset',
@@ -85,13 +86,23 @@ function PrimaryLayout({ children, headTitle, pageTitle }: Props) {
               </div>
             </div>
           </div>
-          <div className="grow flex justify-center bg-gradient-to-b from-indigo-500 p-6 lg:pt-12 lg:p-20">
-            <div className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 lg:pb-12 mb-12 lg:mb-0 lg:w-desktop-container md:w-md-container">
+          <div className="animate-fade-in grow flex justify-center bg-gradient-to-b from-indigo-500 p-6 lg:pt-12 lg:p-20">
+            <motion.div
+              className="bg-white rounded-2xl shadow-2xl p-6 lg:p-8 lg:pb-12 mb-12 lg:mb-0 lg:w-desktop-container md:w-md-container"
+              initial={{ opacity: 0, y: '4rem' }}
+              viewport={{ once: true }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                z: 0,
+                transition: { ease: [0.22, 1, 0.36, 1], duration: 2, delay: 0.25 },
+              }}
+            >
               <div className="border-b-solid border-b-gray-100 border-b pb-2">
                 <h1 className="font-bold text-2xl">{pageTitle}</h1>
               </div>
               {children}
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>

@@ -31,6 +31,7 @@ function Home() {
     if (isCopied) setTimeout(() => setIsCopied(false), 1500)
   }, [isCopied])
 
+  // TODO: fix SSR bug that doesn't change icon dimensions based on screen width
   if (isSSR) return null
 
   if (isSplashScreen) {
@@ -66,21 +67,12 @@ function Home() {
         <Text>
           My approach to building products comes from studying a variety of disciplines, such as:{' '}
           <a
-            href="https://behaviormodel.org/"
-            target="blank"
-            rel="noreferrer"
-            className="underline decoration-sky-500"
-          >
-            behavioral psychology
-          </a>
-          ,{' '}
-          <a
-            href="https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/"
+            href="https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/"
             target="blank"
             rel="noreferrer"
             className="underline decoration-pink-500"
           >
-            game design
+            human interface design
           </a>
           ,{' '}
           <a
@@ -91,23 +83,14 @@ function Home() {
           >
             computer science
           </a>
-          ,{' '}
-          <a
-            href="https://fs.blog/mental-models/#microeconomics"
-            target="blank"
-            rel="noreferrer"
-            className="underline decoration-blue-500"
-          >
-            economics
-          </a>
           , and{' '}
           <a
-            href="https://www.amazon.com/Meditations-New-Translation-Marcus-Aurelius/dp/0812968255/ref=sr_1_1?keywords=meditations+marcus+aurelius&qid=1662424020&sprefix=meditations%2Caps%2C108&sr=8-1"
+            href="https://yukaichou.com/gamification-examples/octalysis-complete-gamification-framework/"
             target="blank"
             rel="noreferrer"
-            className="underline decoration-orange-500"
+            className="underline decoration-cyan-500"
           >
-            philosophy
+            video games
           </a>
           .
         </Text>

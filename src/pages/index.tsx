@@ -67,21 +67,21 @@ function Home() {
         <Text>
           My approach to building products comes from studying a variety of disciplines, such as:{' '}
           <a
-            href="https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/"
+            href="https://ethereum.org/en/whitepaper/"
             target="blank"
             rel="noreferrer"
             className="underline decoration-pink-500"
           >
-            human interface design
+            computer science
           </a>
           ,{' '}
           <a
-            href="https://ethereum.org/en/whitepaper/"
+            href="https://developer.apple.com/design/human-interface-guidelines/guidelines/overview/"
             target="blank"
             rel="noreferrer"
             className="underline decoration-purple-500"
           >
-            computer science
+            interface design
           </a>
           , and{' '}
           <a

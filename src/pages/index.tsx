@@ -67,12 +67,12 @@ function Home() {
         <Text>
           My approach to building products comes from studying a variety of disciplines, such as:{' '}
           <a
-            href="https://ethereum.org/en/whitepaper/"
+            href="https://github.com/patrickxrivera"
             target="blank"
             rel="noreferrer"
             className="underline decoration-pink-500"
           >
-            computer science
+            software engineering
           </a>
           ,{' '}
           <a

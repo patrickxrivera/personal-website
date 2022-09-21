@@ -81,7 +81,7 @@ function Home() {
             rel="noreferrer"
             className="underline decoration-purple-500"
           >
-            interface design
+            product design
           </a>
           , and{' '}
           <a

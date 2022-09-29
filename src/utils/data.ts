@@ -21,7 +21,7 @@ export const posts: Post[] = [
     description:
       'Presentation for the On Deck community that covers: eras of the web, blockchain architecture, last 10 years of crypto, rise of NFTs, and the future of NFTs',
     date: 'March 12th, 2021',
-    url: 'https://docs.google.com/presentation/d/1sUpk0gbvRQelH0MUIOqjNeGe8nwRH4mhrhDHmI6qh4M/edit',
+    url: 'https://docs.google.com/presentation/d/1sUpk0gbvRQelH0MUIOqjNeGe8nwRH4mhrhDHmI6qh4M/edit?usp=sharing',
   },
   {
     title: 'Web3 Creator Economy',

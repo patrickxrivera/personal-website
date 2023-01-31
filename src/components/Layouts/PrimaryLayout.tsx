@@ -4,7 +4,7 @@ import Head from 'next/head'
 import React from 'react'
 import { motion } from 'framer-motion'
 import { EnvelopeIcon } from '@heroicons/react/24/outline'
-import { GitHub, Twitter } from '../Icons'
+import { GitHub, Instagram, Twitter } from '../Icons'
 import Link from '../Link'
 
 type SidebarObject = {
@@ -24,6 +24,12 @@ const SIDEBAR_LIST_CONTACT: SidebarObject[] = [
     text: 'Twitter',
     Icon: <Twitter className="h-5 w-5" />,
     url: 'https://twitter.com/patrickxrivera',
+    openInNewTab: true,
+  },
+  {
+    text: 'Instagram',
+    Icon: <Instagram className="h-5 w-5" />,
+    url: 'https://instagram.com/patrickxrivera',
     openInNewTab: true,
   },
   {

@@ -9,6 +9,7 @@ import Bookmark from './ Bookmark'
 import Mail from './Mail'
 import GitHub from './GitHub'
 import Twitter from './Twitter'
+import Instagram from './Instagram'
 
 export {
   Home,
@@ -22,4 +23,5 @@ export {
   Mail,
   GitHub,
   Twitter,
+  Instagram,
 }

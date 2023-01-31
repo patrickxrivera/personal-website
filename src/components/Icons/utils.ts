@@ -5,4 +5,5 @@ export const defaultStyles = {
 
 export const COLORS = {
   TWITTER_BLUE: '#1DA1F2',
+  INSTAGRAM: '#E1306C',
 }

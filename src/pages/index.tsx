@@ -7,7 +7,7 @@ import Head from 'next/head'
 import Text from '../components/Text'
 import { PrimaryLayout } from '../components/Layouts'
 import Link from '../components/Link'
-import { GitHub, Twitter } from '../components/Icons'
+import { GitHub, Instagram, Twitter } from '../components/Icons'
 import { posts, timeline } from '../utils/data'
 import { ComposeButton, CopiedButton, CopyButton } from '../components/Button'
 import { getBeakerIconDimensions } from '../utils/icons'
@@ -31,7 +31,7 @@ function Home() {
     if (isCopied) setTimeout(() => setIsCopied(false), 1500)
   }, [isCopied])
 
-  // TODO: fix SSR bug that doesn't change icon dimensions based on screen width
+  // // TODO: fix SSR bug that doesn't change icon dimensions based on screen width
   if (isSSR) return null
 
   if (isSplashScreen) {
@@ -203,6 +203,12 @@ function Home() {
                 <div className="mr-4 flex items-center">
                   <Twitter className="h-5 w-5" />
                   <span className="text-lg lg:text-base ml-1">Twitter</span>
+                </div>
+              </Link>
+              <Link url="https://instagram.com/patrickxrivera" openInNewTab>
+                <div className="mr-4 flex items-center">
+                  <Instagram className="h-5 w-5" />
+                  <span className="text-lg lg:text-base ml-1">Instagram</span>
                 </div>
               </Link>
               <Link url="https://github.com/patrickxrivera" openInNewTab>
